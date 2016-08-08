@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8" ?> 
+<!--********** Copyright 2016 Roku Corp.  All Rights Reserved. **********--> 
+
+<!-- 
+    main node which handles home screen children 
+    -->
+<component name="HomeScene" extends="Scene" xsi:noNamespaceSchemaLocation="http://rokudev.roku.com/rokudev/schema/RokuSceneGraph.xsd">
+    
+    <interface>
+        <!-- Content for RowList in GridScreen on Home Scene -->
+        <field id="gridContent" type="node" alias="GridScreen.content" onChange="OnChangeContent"/>
+		 <!-- Button press handler -->
+        <field id="itemSelected" type="integer" alwaysnotify="true" alias="Buttons.itemSelected" onChange="onItemSelected" />
+		
+		<!-- Content for RowList in Search -->
+        <field id="searchContent" type="node" alias="Search.content"/>
+		
+        <!-- Row item selection handler -->
+        <field id="rowItemSelected" type="intarray" alwaysNotify="true" alias="GridScreen.rowItemSelected"/>
+        
+        <field id="SearchString" type="string" alwaysnotify="true" alias="Search.SearchString"/>
+    </interface>
+    
+    <!-- main handler -->
+    <script type="text/brightscript" uri="pkg:/components/screens/HomeScene/HomeScene.brs" />
+    
+    <children>
+         <!-- Grid Screen with RowList on Home Scene -->
+        <GridScreen
+            id="GridScreen"
+            visible="true"
+            translation="[0,0]" />
+        
+        <!-- Details Screen with Play button -->
+        <DetailsScreen
+            id="DetailsScreen"
+            visible="false"/>
+            
+        <!--Search screen.-->
+        <Search
+        	id="Search"
+        	visible="false"/>    
+        	
+        <LoadingIndicator
+	      id="loadingIndicator"
+	      imageUri="pkg:/components/screens/LoadingIndicator/loader.png"
+	      clockwise="true"
+	      spinInterval="2"
+	      fadeInterval="0.5"
+	      spacing="20"
+	      imageWidth="100"
+	      text="Loading..."
+	      width="1280"
+	      height="720"
+	      centered="false"
+          translation="[0, 0]"
+	      textPadding="10"
+	      font="font:SmallBoldSystemFont"
+	      backgroundColor="0x551A8B"
+	      backgroundOpacity="0"/>		
+    </children> 
+</component>
