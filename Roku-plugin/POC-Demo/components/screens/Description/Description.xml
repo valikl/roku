@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8" ?> 
+<!--********** Copyright 2016 Roku Corp.  All Rights Reserved. **********--> 
+
+<!-- 
+    node - description of the content item
+    -->
+<component name="Description" extends="LayoutGroup" xsi:noNamespaceSchemaLocation="http://rokudev.roku.com/rokudev/schema/RokuSceneGraph.xsd">
+    <interface>
+        <!-- Alias to Title label -->
+        <field id="Title"           type="node" alias=""/>
+
+        <!-- Alias to Description label -->
+        <field id="Description"     type="node" alias=""/>
+
+        <!-- Alias to ReleaseDate label -->
+        <!-- <field id="ReleaseDate"     type="node" alias=""/> -->
+
+
+        <!-- Content node -->
+        <field id="Content"         type="node" onChange="OnContentChanged"/>
+    </interface>
+    
+    <!-- main handler -->
+    <script type="text/brightscript" uri="pkg:/components/screens/Description/Description.brs" />
+    
+    <children>
+        <Label
+            id="Title"
+            color="0xFFFFFF"
+            font="font:LargeBoldSystemFont"
+            text=""/>
+            
+        <!-- <Label
+            id="ReleaseDate"
+            color="0xFFFFFF"
+            text=""/> -->
+     
+            
+        <Label
+            id="Description"
+            color="0xFFFFFF"
+            wrap="true"
+            
+            width="676"
+            height="145"
+            lineSpacing="3"
+            font="font:SmallSystemFont"
+            text=""/>
+    </children>
+
+</component> 

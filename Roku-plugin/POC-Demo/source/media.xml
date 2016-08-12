@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss xmlns:media="http://search.yahoo.com/mrss/" version="2.0">
+  <channel>
+    <title>Roku-Developer-Sample-Feed</title>
+    <link />
+    <description>Feed on video content for testing channel applications built on the Roku developer platform</description>
+    <pubDate>Wed, 11 Nov 2015 20:30:54 GMT</pubDate>
+    <image>
+      <title>Roku-Developer-Sample-Feed</title>
+      <url>http://s2.content.video.llnw.net/lovs/images-prod/59021fabe3b645968e382ac726cd6c7b/channel/1cfd09ab38e54f48be8498e0249f5c83/S9O.600x600.png</url>
+    </image>
+    <item>
+      <title>Lecture "Kabbalahhhh for the Nation"</title>
+      <link>http://files.kabbalahmedia.info/files/eng_t_rav_2016-01-31_lecture_havaya-veshma-kabbalah_hashivut-haverim.mp4</link>
+      <description>Concerning the Importance of Friends. For more sample stuff and etc visit Mizrahi place.</description>
+      <pubDate>Thu, 11 Jun 2015 16:51:07 GMT</pubDate>
+      <guid isPermaLink="false">decbe34b64ea4ca281dc09997d0f23fd</guid>
+      <media:content channels="2" bitrate="1328.0" duration="53" fileSize="8731706" framerate="23.976" height="720" type="video/mp4" width="1280" isDefault="true" url="http://files.kabbalahmedia.info/files/eng_t_rav_2016-01-31_lecture_havaya-veshma-kabbalah_hashivut-haverim.mp4">
+        <media:description>Concerning the Importance of Friends 2</media:description>
+        <media:keywords>episode 21, roku recommends, twitchh</media:keywords>
+        <media:thumbnail url="http://www.laitman.ru/wp-content/gallery/vstrechi-poezdki/laitman-in-japanese_w.jpg" urlBackGround="http://i.imgsafe.org/e90d3df238.png" />
+        <media:title>Live Gaming</media:title>
+      </media:content>
+    </item>
+    <item>
+      <title>"Kabbalah for the Nation"</title>
+      <link>http://files.kabbalahmedia.info/download/files/heb_o_rav_2016-06-13_clip_daily-lesson_chok-haarvut-03.mp4</link>
+      <description>This is sample video for Kabbalah beginner course. For more sample stuff and etc visit Mizrahi place</description>
+      <pubDate>Thu, 21 May 2015 18:47:20 GMT</pubDate>
+      <guid isPermaLink="false">6c9d0951d6d74229afe4adf972b278dd</guid>
+      <media:content channels="2" bitrate="1328.0" duration="59" fileSize="9523612" framerate="23.976" height="720" type="video/mp4" width="1280" isDefault="true" url="http://files.kabbalahmedia.info/download/files/heb_o_rav_2016-06-13_clip_daily-lesson_chok-haarvut-03.mp4">
+        <media:description>This is searching where placed this field kabbalah is for beginners course and be aware of ZOG</media:description>
+        <media:keywords>kabbalah code beginners2</media:keywords>
+        <media:thumbnail url="http://i.imgsafe.org/ea30b5e1ce.png" urlBackGround="http://i.imgsafe.org/ea30b84360.png"/>
+        <media:title>This is end of item2 of course for begginers</media:title>
+      </media:content>
+    </item>
+    <item>
+      <title>Lecture 3 Kabbule for One</title>
+      <link>http://files.kabbalahmedia.info/download/files/rus_o_rav_2016-06-13_clip_novosti_smartfoni-vitesniaut-lubov.mp4</link>
+      <description>This is another sample of kabbalah course try us and award with ethernity, otherwise your are doomed</description>
+      <pubDate>Thu, 21 May 2015 18:45:58 GMT</pubDate>
+      <guid isPermaLink="false">7405a8c101ee4c9da312c426e6067044</guid>
+      <media:content channels="2" bitrate="1328.0" duration="71" fileSize="11678262" framerate="23.976" height="720" type="video/mp4" width="1280" isDefault="true" url="http://files.kabbalahmedia.info/download/files/rus_o_rav_2016-06-13_clip_novosti_smartfoni-vitesniaut-lubov.mp4">
+        <media:description>In this sample you will achieve ehernity nad if not finish you will burned You've been awared</media:description>
+        <media:keywords>Lecture 3 for ethernity and beyound</media:keywords>
+        <media:thumbnail url="http://www.laitman.ru/wp-content/gallery/naedine-s-prirodoj/laitman_2009-05-xx_ny_5048_w.jpg" urlBackGround="http://www.laitman.ru/wp-content/gallery/banners/170x170-webinar-new.jpg" />
+        <media:title>Lecture 3 and a half</media:title>
+      </media:content>
+    </item>
+  </channel>
+</rss>

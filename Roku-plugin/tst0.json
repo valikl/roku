@@ -1,0 +1,18 @@
+{
+	myobjs : [
+		{
+			"url":"http:\/\/localhost:8888\/kirby-roku\/kabbalah-for-beginners\/lessons",
+			"title":"Lessons",
+			"text":"",
+			"description":"",
+			"template":"default"
+		},
+		{
+			"url":"http:\/\/localhost:8888\/kirby-roku\/kabbalah-for-beginners\/rav",
+			"title":"Rav",
+			"text":"",
+			"description":"",
+			"template":"default"
+		}
+	]
+}
