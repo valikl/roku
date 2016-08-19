@@ -18,6 +18,8 @@ Sub RunUserInterface()
     Row6=GetApiArray(6)
     Row7=GetApiArray(7)
     Row8=GetApiArray(8)
+    Row1.Append(Row2)
+    
     searchRow=GetApiArray(1)
     searchRow.Append(Row2)
     searchRow.Append(Row3)

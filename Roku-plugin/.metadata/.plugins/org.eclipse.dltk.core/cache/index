@@ -1,21 +1,21 @@
 <?xml version="1.0" encoding="ASCII"?>
-<cache:CacheIndex xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:cache="http://eclipse.org/dltk/cache_model" lastIndex="234" environment="org.eclipse.dltk.core.environment.localEnvironment">
+<cache:CacheIndex xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:cache="http://eclipse.org/dltk/cache_model" lastIndex="274" environment="org.eclipse.dltk.core.environment.localEnvironment">
   <entries path="C:/Users/valikl/workspace/test/source" timestamp="1465522542951" lastAccessTime="1469665512024">
     <attributes name=".dltk.core.archive.cache.lastaccess" location="2838196607/2230296666/1.idx"/>
   </entries>
-  <entries path="#special#brightscript_types#/builtins/intrinsics_types" lastAccessTime="1470964459841">
+  <entries path="#special#brightscript_types#/builtins/intrinsics_types" lastAccessTime="1471567157569">
     <attributes name="indexed" location="2838196607/903500642/7.idx"/>
   </entries>
-  <entries path="#special#brightscript_types#/builtins/v30_bslCore" lastAccessTime="1470964459841">
+  <entries path="#special#brightscript_types#/builtins/v30_bslCore" lastAccessTime="1471567157571">
     <attributes name="indexed" location="2838196607/903500642/9.idx"/>
   </entries>
-  <entries path="#special#brightscript_types#/builtins/types" lastAccessTime="1470964459841">
+  <entries path="#special#brightscript_types#/builtins/types" lastAccessTime="1471567157573">
     <attributes name="indexed" location="2838196607/903500642/11.idx"/>
   </entries>
-  <entries path="#special#brightscript_types#/builtins/v30_bslDefender" lastAccessTime="1470964459841">
+  <entries path="#special#brightscript_types#/builtins/v30_bslDefender" lastAccessTime="1471567157574">
     <attributes name="indexed" location="2838196607/903500642/13.idx"/>
   </entries>
-  <entries path="#special#brightscript_types#/builtins/globals" lastAccessTime="1470964459841">
+  <entries path="#special#brightscript_types#/builtins/globals" lastAccessTime="1471567157575">
     <attributes name="indexed" location="2838196607/903500642/15.idx"/>
   </entries>
   <entries path="C:/Users/valikl/workspace/POC-Demo/components/screens/LoadingIndicator/LoadingIndicator.brs" timestamp="1465780257400" lastAccessTime="1470959280487">
@@ -137,4 +137,58 @@
   <entries path="C:/Roku/Project/Roku-plugin/POC-Demo/components/screens/GridScreen/GridScreen.xml" timestamp="1470963550856" lastAccessTime="1470964459857"/>
   <entries path="C:/Roku/Project/Roku-plugin/POC-Demo/components/screens/LoadingIndicator/loader.png" timestamp="1465780257400" lastAccessTime="1470964324139"/>
   <entries path="C:/Roku/Project/Roku-plugin/POC-Demo/components/screens/LoadingIndicator/LoadingIndicator.xml" timestamp="1465780257400" lastAccessTime="1470964324139"/>
+  <entries path="C:/BB/Roku/Roku-plugin/POC-Demo/components/LoadingIndicator/LoadingIndicator.brs" timestamp="1471565672413" lastAccessTime="1471567157578">
+    <attributes name="indexed" location="2838196607/3972325531/269.idx"/>
+  </entries>
+  <entries path="C:/BB/Roku/Roku-plugin/POC-Demo/components/LoadingIndicator" timestamp="1471565672413" lastAccessTime="1471565805117">
+    <attributes name=".dltk.core.archive.cache.lastaccess" location="2838196607/2966750085/235.idx"/>
+  </entries>
+  <entries path="C:/BB/Roku/Roku-plugin/POC-Demo/components/screens/Description/Description.brs" timestamp="1471565672413" lastAccessTime="1471567157580">
+    <attributes name="indexed" location="2838196607/696537563/257.idx"/>
+  </entries>
+  <entries path="C:/BB/Roku/Roku-plugin/POC-Demo/components/screens/Description" timestamp="1471565672413" lastAccessTime="1471565803515">
+    <attributes name=".dltk.core.archive.cache.lastaccess" location="2838196607/2635585408/237.idx"/>
+  </entries>
+  <entries path="C:/BB/Roku/Roku-plugin/POC-Demo/components/screens/DetailsScreen" timestamp="1471565672413" lastAccessTime="1471566565085">
+    <attributes name=".dltk.core.archive.cache.lastaccess" location="2838196607/2635585408/239.idx"/>
+  </entries>
+  <entries path="C:/BB/Roku/Roku-plugin/POC-Demo/components/screens/FadingBackground/FadingBackground.brs" timestamp="1471565672413" lastAccessTime="1471567157606">
+    <attributes name="indexed" location="2838196607/1296689109/255.idx"/>
+  </entries>
+  <entries path="C:/BB/Roku/Roku-plugin/POC-Demo/components/screens/FadingBackground" timestamp="1471565672413" lastAccessTime="1471565802971">
+    <attributes name=".dltk.core.archive.cache.lastaccess" location="2838196607/2635585408/241.idx"/>
+  </entries>
+  <entries path="C:/BB/Roku/Roku-plugin/POC-Demo/components/screens/HomeScene" timestamp="1471565672429" lastAccessTime="1471565804913">
+    <attributes name=".dltk.core.archive.cache.lastaccess" location="2838196607/2635585408/245.idx"/>
+  </entries>
+  <entries path="C:/BB/Roku/Roku-plugin/POC-Demo/components/screens/LoadingIndicator/LoadingIndicator.brs" timestamp="1471565672429" lastAccessTime="1471567158070">
+    <attributes name="indexed" location="2838196607/245061588/259.idx"/>
+  </entries>
+  <entries path="C:/BB/Roku/Roku-plugin/POC-Demo/components/screens/LoadingIndicator" timestamp="1471565672429" lastAccessTime="1471565803897">
+    <attributes name=".dltk.core.archive.cache.lastaccess" location="2838196607/2635585408/247.idx"/>
+  </entries>
+  <entries path="C:/BB/Roku/Roku-plugin/POC-Demo/components/screens/Search/Search.brs" timestamp="1471565672429" lastAccessTime="1471567157604">
+    <attributes name="indexed" location="2838196607/3166723511/265.idx"/>
+  </entries>
+  <entries path="C:/BB/Roku/Roku-plugin/POC-Demo/components/screens/Search" timestamp="1471565672429" lastAccessTime="1471565804685">
+    <attributes name=".dltk.core.archive.cache.lastaccess" location="2838196607/2635585408/249.idx"/>
+  </entries>
+  <entries path="C:/BB/Roku/Roku-plugin/POC-Demo/source" timestamp="1471565672460" lastAccessTime="1471565804206">
+    <attributes name=".dltk.core.archive.cache.lastaccess" location="2838196607/1056194359/251.idx"/>
+  </entries>
+  <entries path="C:/BB/Roku/Roku-plugin/POC-Demo/components/screens/DetailsScreen/DetailsScreen.xml" timestamp="1471565672413" lastAccessTime="1471566564676"/>
+  <entries path="C:/BB/Roku/Roku-plugin/POC-Demo/components/screens/FadingBackground/FadingBackground.xml" timestamp="1471565672413" lastAccessTime="1471565802013"/>
+  <entries path="C:/BB/Roku/Roku-plugin/POC-Demo/components/screens/Description/Description.xml" timestamp="1471565672413" lastAccessTime="1471565802019"/>
+  <entries path="C:/BB/Roku/Roku-plugin/POC-Demo/components/screens/LoadingIndicator/loader.png" timestamp="1471565672429" lastAccessTime="1471565802022"/>
+  <entries path="C:/BB/Roku/Roku-plugin/POC-Demo/components/screens/LoadingIndicator/LoadingIndicator.xml" timestamp="1471565672429" lastAccessTime="1471565802022"/>
+  <entries path="C:/BB/Roku/Roku-plugin/POC-Demo/source/media.xml" timestamp="1471565672460" lastAccessTime="1471565802026"/>
+  <entries path="C:/BB/Roku/Roku-plugin/POC-Demo/source/media2.xml" timestamp="1471565672476" lastAccessTime="1471565802026"/>
+  <entries path="C:/BB/Roku/Roku-plugin/POC-Demo/components/screens/GridScreen/GridScreen.xml" timestamp="1471565672429" lastAccessTime="1471566564941"/>
+  <entries path="C:/BB/Roku/Roku-plugin/POC-Demo/components/screens/Search/Search.xml" timestamp="1471565672429" lastAccessTime="1471565802032"/>
+  <entries path="C:/BB/Roku/Roku-plugin/POC-Demo/components/screens/HomeScene/HomeScene.xml" timestamp="1471565672429" lastAccessTime="1471565802040"/>
+  <entries path="C:/BB/Roku/Roku-plugin/POC-Demo/components/LoadingIndicator/LoadingIndicator.xml" timestamp="1471565672413" lastAccessTime="1471565802043"/>
+  <entries path="C:/BB/Roku/Roku-plugin/POC-Demo/components/screens/DetailsScreen/DetailsScreen.brs" timestamp="1471565672413" lastAccessTime="1471567157608">
+    <attributes name="indexed" location="2838196607/160814359/271.idx"/>
+  </entries>
+  <entries path="C:/BB/Roku/Roku-plugin/POC-Demo/components/screens/GridScreen/GridScreen.brs" timestamp="1471569441957" lastAccessTime="1471569442573"/>
 </cache:CacheIndex>
