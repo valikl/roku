@@ -1,4 +1,4 @@
-**/metadata
+.metadata
 Roku-plugin/.metadata/.plugins*
 Roku-plugin/.metadata/.plugins/org.eclipse.core.resources/.projects/POC-Demo/.markers.snap
 Roku-plugin/.metadata/.plugins/org.eclipse.core.resources/.projects/POC-Demo/.syncinfo.snap
