@@ -1,0 +1,9 @@
+**/metadata
+Roku-plugin/.metadata/.plugins*
+Roku-plugin/.metadata/.plugins/org.eclipse.core.resources/.projects/POC-Demo/.markers.snap
+Roku-plugin/.metadata/.plugins/org.eclipse.core.resources/.projects/POC-Demo/.syncinfo.snap
+Roku-plugin/.metadata/.plugins/org.eclipse.core.resources/.root/.markers.snap
+Roku-plugin/.metadata/.plugins/org.eclipse.core.resources/.safetable/org.eclipse.core.resources
+Roku-plugin/.metadata/.plugins/org.eclipse.dltk.core/cache/index
+Roku-plugin/.metadata/.plugins/org.eclipse.e4.workbench/workbench.xmi
+*.index
