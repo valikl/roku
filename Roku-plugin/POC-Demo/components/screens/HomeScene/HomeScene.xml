@@ -35,6 +35,9 @@
         <DetailsScreen
             id="DetailsScreen"
             visible="false"/>
+         <PlaylistScreen
+            id="PlaylistScreen"
+            visible="false"/>
             
         <!--Search screen.-->
         <Search

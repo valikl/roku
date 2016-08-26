@@ -69,7 +69,6 @@ result = false
                 
                 if focusedContent <> invalid then
                 m.top.focusedContent    = focusedContent
-                print focusedContent
                
               end if
              end if    

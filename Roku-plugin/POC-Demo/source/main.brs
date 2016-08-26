@@ -121,6 +121,7 @@ Function ParseXMLContent(list As Object)
 
         for each itemAA in rowAA.ContentList
             item = createObject("RoSGNode","ContentNode")
+            
             item.SetFields(itemAA)
             row.appendChild(item)
         end for
@@ -157,6 +158,7 @@ Function GetApiArray(row As Integer)
             itemAA = xmlItem.GetChildElements()
             if itemAA <> invalid
                 item = {}
+                item.contentType="movie"
                 for each xmlItem in itemAA
                     item[xmlItem.getName()] = xmlItem.getText()
                     if xmlItem.getName() = "media:content"
@@ -198,7 +200,7 @@ function getJson()
     'json = "{" + Chr(34) + "myobjs" + Chr(34) + ": [{" + Chr(34) + "title" + Chr(34) + ":" + Chr(34) + "Lessons" + Chr(34) + "}]}"
     'print json
     'response = ParseJson(json)
-    For Each myobj In response
-       print myobj.title
-    End For
+   ' For Each myobj In response
+   '    print myobj.title
+   ' End For
 end function
