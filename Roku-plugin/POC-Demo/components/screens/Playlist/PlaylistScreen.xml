@@ -102,6 +102,21 @@
 	       </Group>    
         </Group> 
 
+
+		<RowList
+			id="PlaylistItems"
+			focusBitmapUri="pkg:/images/focus_grid.9.png"
+			translation="[128, 500]"
+			itemSize="[1327, 203]"
+			itemSpacing="[0, 37]"
+			numRows="1"
+			focusXOffset="[0]"
+			rowFocusAnimationStyle="fixedFocusWrap"
+			rowItemSize="[[241, 158],[158,158]]"
+			rowItemSpacing="[[20, 0]]"
+			showRowLabel="true"
+			showRowCounter="true"
+			rowLabelOffset="[[0,16]]" />
         <!--Playback node.-->
         <Video
             id="VideoPlayer"

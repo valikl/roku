@@ -13,7 +13,7 @@ Function Init()
     m.poster            =   m.top.findNode("Poster")
     m.description       =   m.top.findNode("Description")
     m.background        =   m.top.findNode("Background")
-
+    m.playListItems       =   m.top.findNode("PlaylistItems")
 
     ' create buttons
     result = []
@@ -77,6 +77,7 @@ End Sub
 ' Content change handler
 Sub OnContentChange()
     if m.top.content<>invalid then
+        print m.top.content
         m.description.content   = m.top.content
         m.description.Description.width = "770"
         m.videoPlayer.content   = m.top.content
