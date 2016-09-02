@@ -76,6 +76,7 @@ End Sub
 
 ' Content change handler
 Sub OnContentChange()
+
     if m.top.content<>invalid then
         print m.top.content
         m.description.content   = m.top.content
@@ -84,6 +85,16 @@ Sub OnContentChange()
         m.top.streamUrl         = m.top.content.url
         m.poster.uri            = m.top.content.HDPosterUrl
         m.background.uri        = m.top.content.hdBackgroundImageUrl
+        
+        'item = createObject("RoSGNode","ContentNode")
+       ' item.SetFields(m.top.content)
+        row = createObject("RoSGNode","ContentNode")
+        'row.Title = ""
+        row.appendChild(m.top.content)
+        RowItems = createObject("RoSGNode","ContentNode")
+        RowItems.appendChild(row)
+        m.playListItems.content = RowItems
+        'm.playListItems.setFocus(true)
     end if
 End Sub
 

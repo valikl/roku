@@ -53,7 +53,9 @@ result = false
         if key="up" then
             m.rowList.setFocus(false)
             m.buttons.setFocus(true)
+            ''Take images from somewhere
            m.buttons.uri="http://i.imgsafe.org/ea30b5e1ce.png"
+           m.background.uri="http://www.laitman.ru/wp-content/gallery/vstrechi-poezdki/laitman-in-japanese_w.jpg"
             print "in"
             result = true
          else if key="down"

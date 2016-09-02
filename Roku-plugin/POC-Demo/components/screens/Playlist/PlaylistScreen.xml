@@ -55,7 +55,7 @@
             id="testRectangle"
             color="0x000000"
             width="1280"
-            height="251"
+            height="50"
             translation="[0, 462]"
             opacity="0.8"
              />
@@ -63,14 +63,14 @@
         <!--Item description.-->
         <Description 
             id="Description"
-            translation="[430, 475]"
+            translation="[430, 300]"
             itemSpacings="[7, 16]"
             />
 
         <!--Item poster.-->
         <Poster
             id="Poster"
-            translation="[60, 495]"
+            translation="[60, 300]"
             width="241"
             height="158"
             />
@@ -106,7 +106,7 @@
 		<RowList
 			id="PlaylistItems"
 			focusBitmapUri="pkg:/images/focus_grid.9.png"
-			translation="[128, 500]"
+			translation="[60, 450]"
 			itemSize="[1327, 203]"
 			itemSpacing="[0, 37]"
 			numRows="1"
