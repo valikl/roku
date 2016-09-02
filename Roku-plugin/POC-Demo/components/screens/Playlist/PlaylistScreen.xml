@@ -55,8 +55,8 @@
             id="testRectangle"
             color="0x000000"
             width="1280"
-            height="50"
-            translation="[0, 462]"
+            height="200"
+            translation="[0, 490]"
             opacity="0.8"
              />
 
@@ -68,12 +68,12 @@
             />
 
         <!--Item poster.-->
-        <Poster
+        <!-- Poster
             id="Poster"
             translation="[60, 300]"
             width="241"
             height="158"
-            />
+            /-->
 
         <!-- Overhang -->
         <Group
@@ -106,7 +106,7 @@
 		<RowList
 			id="PlaylistItems"
 			focusBitmapUri="pkg:/images/focus_grid.9.png"
-			translation="[60, 450]"
+			translation="[60, 470]"
 			itemSize="[1327, 203]"
 			itemSpacing="[0, 37]"
 			numRows="1"
