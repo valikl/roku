@@ -10,19 +10,34 @@ Function Init()
 
     m.buttons           =   m.top.findNode("Buttons")
     m.videoPlayer       =   m.top.findNode("VideoPlayer")
-    m.poster            =   m.top.findNode("Poster")
+   ' m.poster            =   m.top.findNode("Poster")
     m.description       =   m.top.findNode("Description")
     m.background        =   m.top.findNode("Background")
-
+    m.playListItems       =   m.top.findNode("PlaylistItems")
 
     ' create buttons
     result = []
-    for each button in ["Play2", "Second"]
+    for each button in ["Play"]
         result.push({title : button})
     end for
     m.buttons.content = ContentList2SimpleNode(result)
 End Function
 
+function onKeyEvent(key as String, press as Boolean) as Boolean
+ ? ">>> PlayList >> OnkeyEvent"
+ print key
+ result = false
+ if key="up" then
+     m.playListItems.setFocus(false)
+     m.buttons.setFocus(true)
+     result=true
+ else if key="down" then
+    m.buttons.setFocus(false)
+    m.playListItems.setFocus(true)
+    result= true
+ end if
+ return result
+End Function
 
 ' set proper focus to buttons if Details opened and stops Video if Details closed
 Sub onVisibleChange()
@@ -38,7 +53,7 @@ End Sub
 
 ' set proper focus to Buttons in case if return from Video PLayer
 Sub OnFocusedChildChange()
-    if m.top.isInFocusChain() and not m.buttons.hasFocus() and not m.videoPlayer.hasFocus() then
+    if m.top.isInFocusChain() and not m.buttons.hasFocus() and not m.videoPlayer.hasFocus() and not m.playListItems.hasFocus() then
         m.buttons.setFocus(true)
     end if
 End Sub
@@ -76,13 +91,25 @@ End Sub
 
 ' Content change handler
 Sub OnContentChange()
+
     if m.top.content<>invalid then
+        print m.top.content
         m.description.content   = m.top.content
         m.description.Description.width = "770"
         m.videoPlayer.content   = m.top.content
         m.top.streamUrl         = m.top.content.url
-        m.poster.uri            = m.top.content.HDPosterUrl
+       ' m.poster.uri            = m.top.content.HDPosterUrl
         m.background.uri        = m.top.content.hdBackgroundImageUrl
+        
+        'item = createObject("RoSGNode","ContentNode")
+       ' item.SetFields(m.top.content)
+        row = createObject("RoSGNode","ContentNode")
+        'row.Title = ""
+        row.appendChild(m.top.content)
+        RowItems = createObject("RoSGNode","ContentNode")
+        RowItems.appendChild(row)
+        m.playListItems.content = RowItems
+        'm.playListItems.setFocus(true)
     end if
 End Sub
 

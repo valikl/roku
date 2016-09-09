@@ -42,12 +42,9 @@
 			id="RowList"
 			focusBitmapUri="pkg:/images/focus_grid.9.png"
 			translation="[128, 329]"
-			
 			itemSize="[1327, 203]"
 			itemSpacing="[0, 37]"
-			
 			numRows="2"
-
 			focusXOffset="[0]"
 			rowFocusAnimationStyle="fixedFocusWrap"
 			rowItemSize="[[241, 158],[158,158]]"

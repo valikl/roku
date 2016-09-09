@@ -55,25 +55,25 @@
             id="testRectangle"
             color="0x000000"
             width="1280"
-            height="251"
-            translation="[0, 462]"
+            height="200"
+            translation="[0, 490]"
             opacity="0.8"
              />
 
         <!--Item description.-->
         <Description 
             id="Description"
-            translation="[430, 475]"
+            translation="[430, 300]"
             itemSpacings="[7, 16]"
             />
 
         <!--Item poster.-->
-        <Poster
+        <!-- Poster
             id="Poster"
-            translation="[60, 495]"
+            translation="[60, 300]"
             width="241"
             height="158"
-            />
+            /-->
 
         <!-- Overhang -->
         <Group
@@ -102,6 +102,21 @@
 	       </Group>    
         </Group> 
 
+
+		<RowList
+			id="PlaylistItems"
+			focusBitmapUri="pkg:/images/focus_grid.9.png"
+			translation="[60, 470]"
+			itemSize="[1327, 203]"
+			itemSpacing="[0, 37]"
+			numRows="1"
+			focusXOffset="[0]"
+			rowFocusAnimationStyle="fixedFocusWrap"
+			rowItemSize="[[241, 158],[158,158]]"
+			rowItemSpacing="[[20, 0]]"
+			showRowLabel="true"
+			showRowCounter="true"
+			rowLabelOffset="[[0,16]]" />
         <!--Playback node.-->
         <Video
             id="VideoPlayer"
