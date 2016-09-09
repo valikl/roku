@@ -9,7 +9,7 @@ Sub RunUserInterface()
     print "HHHHHHHHHHHHHH"
 
     'try to read json
-  '  getJson()
+    list= getJson()
     Row1 = GetApiArray(1)
     Row2=GetApiArray(2)
     Row3=GetApiArray(3)
@@ -40,7 +40,7 @@ Sub RunUserInterface()
             TITLE : "Lessons - advance"
             ContentList : Row3
         }
-        {
+       {
             TITLE : "Music"
             ContentList : Row4
         }
@@ -193,14 +193,40 @@ End Function
 
 function getJson()
     searchRequest = CreateObject("roUrlTransfer")
-    searchRequest.SetURL("http://10.66.24.92/kirby-project/json.txt")
+    searchRequest.SetURL("http://10.66.24.71/kirby-roku/kabbalah-channel/")
     json = searchRequest.GetToString()
-    print json
-    response = ParseJson(json)
-    'json = "{" + Chr(34) + "myobjs" + Chr(34) + ": [{" + Chr(34) + "title" + Chr(34) + ":" + Chr(34) + "Lessons" + Chr(34) + "}]}"
     'print json
-    'response = ParseJson(json)
-   ' For Each myobj In response
-   '    print myobj.title
-   ' End For
+
+    responseJson = ParseJson(json)
+    list = []
+    for each category in responseJson
+         cat={}
+         cat.TITLE=category.title
+         result = []
+        for each category_item in category.children
+            'print category_item
+            item = {}
+            if category_item.TYPE="PLAYLIST" 
+                item.contenttype="season"
+                item.title=category_item.title
+                item.description=category_item.description
+                item.HDPosterUrl = category_item.image_url
+                item.children=category_item.children
+            else
+                item.contentType="movie"
+                item.stream = category_item.video_url
+                item.url = category_item.video_url
+                item.streamFormat = "mp4"
+                item.HDPosterUrl = category_item.side_image_url
+                item.hdBackgroundImageUrl = category_item.background_image_url
+                item.title=category_item.title
+                item.description=category_item.description
+                
+            end if
+         result.push(item)
+        end for 
+         cat.ContentList=result
+         list.push(cat)
+    end for
+    return list
 end function
