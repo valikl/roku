@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<component name="Options" extends="Group" xsi:noNamespaceSchemaLocation="http://rokudev.roku.com/rokudev/schema/RokuSceneGraph.xsd">
+ <interface>
+        <field id="itemSelected" type="integer" alwaysnotify="true" alias="Buttons.itemSelected" onChange="onItemSelected" />
+    </interface>
+    <children>
+  		  <Poster
+            id="Background"
+            width="1280"
+            height="720"
+             uri="pkg:/images/MainMenu_Icon_Center_HD.jpg"
+            />
+        <!--Control buttons.-->
+        <LabelList
+            id="Buttons"
+            translation="[800,120]"
+            color="0xFF000080"
+            focusedColor="0x333333FF"
+            numRows="5"
+            vertFocusAnimationStyle="floatingFocus"
+            itemSize="[250, 55]"
+            />
+            
+     </children>
+</component>
