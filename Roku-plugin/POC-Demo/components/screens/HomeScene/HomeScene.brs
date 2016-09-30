@@ -40,7 +40,6 @@ End Function
 Function OnRowItemSelected()
     ' On select any item on home scene, show Details node and hide Grid
     if m.gridScreen.focusedContent.contentType=3
-        print "season "
         m.gridScreen.visible = "false"
         m.playlistScreen.content = m.gridScreen.focusedContent
         m.playlistScreen.setFocus(true)
@@ -65,7 +64,7 @@ Function OnKeyEvent(key, press) as Boolean
             ' option key handler
 
             ' hide last opened screen (m.screenStack.peek() gridScreen or detailsScreen)
-            m.screenStack.peek().visible = false
+           ' m.screenStack.peek().visible = false
 
             ' add Search screen to Screen stack
             m.screenStack.push(m.Search)
