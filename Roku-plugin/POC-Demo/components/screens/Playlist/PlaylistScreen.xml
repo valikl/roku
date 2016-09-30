@@ -18,6 +18,12 @@
         <field id="content" type="node" alwaysnotify="true" onChange="OnContentChange" />
         
         <field id="IsOptionsLabelVisible" type="bool" alias="Optionslabel.visible"/>
+        
+         <field id="rowItemSelected" type="intarray" alwaysnotify="true" alias="PlaylistItems.rowItemSelected"/>
+         
+        <field id="itemFocused" type="intarray" alias="PlaylistItems.rowItemFocused" onChange="OnItemFocused"/>
+        
+        <field id="PLcontent" type="node" alias="PlaylistItems.content"/>
     </interface>
     
     <!-- main handler -->
@@ -87,10 +93,11 @@
 	       <Group 
 	       	id="Optionslabel">
 	       <Label 
+	       		id="about"
 	           translation="[726, 58]"
 	           width="400"
 	           horizAlign="right" 
-	           text="Search"/>
+	           text="About"/>
 	       
 	       <Poster id="OptionsIcon"
 	           blendColor="#06d5e1"

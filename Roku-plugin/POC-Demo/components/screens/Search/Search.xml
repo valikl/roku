@@ -54,12 +54,12 @@
         <Poster
         	id = "PosterOverhang"
             translation="[79, 36]"
-            uri="pkg:/images/overhangLogo.png"
+            uri="pkg:/images/logo.png"
             width="157"
             height="50" />
                 
         <Poster
-        	id="BackgroundDown"
+        	id="BackgroundDown" 
             translation="[0, 650]"
             uri="pkg:/images/BG_dark_down.png"
             width="2000"

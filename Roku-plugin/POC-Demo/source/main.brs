@@ -26,6 +26,8 @@ Sub RunUserInterface()
     searchRow.Append(Row6)
     searchRow.Append(Row7)
     searchRow.Append(Row8)
+    'SET 2 TO SEE DATA FROM API
+    if 1=2
     list = [
         {
             TITLE : "LESSONS - BEGINERS"
@@ -53,7 +55,7 @@ Sub RunUserInterface()
             ContentList : Row6
         }
          {
-            TITLE : "Short clips"
+           TITLE : "Short clips"
             ContentList : Row7
         }
         {
@@ -61,6 +63,7 @@ Sub RunUserInterface()
             ContentList : Row8
         }
     ]
+    end if
     m.SearchList = [
         {
             TITLE : "Search results"
@@ -118,10 +121,9 @@ Function ParseXMLContent(list As Object)
     'for index = 0 to 1
         row = createObject("RoSGNode","ContentNode")
         row.Title = rowAA.Title
-
+        
         for each itemAA in rowAA.ContentList
             item = createObject("RoSGNode","ContentNode")
-            
             item.SetFields(itemAA)
             row.appendChild(item)
         end for
@@ -193,40 +195,44 @@ End Function
 
 function getJson()
     searchRequest = CreateObject("roUrlTransfer")
-    searchRequest.SetURL("http://10.66.24.71/kirby-roku/kabbalah-channel/")
+    searchRequest.SetURL("http://10.66.24.124/kirby-roku/kabbalah-channel/")
     json = searchRequest.GetToString()
     'print json
 
     responseJson = ParseJson(json)
     list = []
     for each category in responseJson
-         cat={}
-         cat.TITLE=category.title
-         result = []
-        for each category_item in category.children
-            'print category_item
-            item = {}
-            if category_item.TYPE="PLAYLIST" 
-                item.contenttype="season"
-                item.title=category_item.title
-                item.description=category_item.description
-                item.HDPosterUrl = category_item.image_url
-                item.children=category_item.children
-            else
-                item.contentType="movie"
-                item.stream = category_item.video_url
-                item.url = category_item.video_url
-                item.streamFormat = "mp4"
-                item.HDPosterUrl = category_item.side_image_url
-                item.hdBackgroundImageUrl = category_item.background_image_url
-                item.title=category_item.title
-                item.description=category_item.description
-                
-            end if
-         result.push(item)
-        end for 
-         cat.ContentList=result
-         list.push(cat)
+    
+    if category.Type="category"
+             cat={}
+             cat.TITLE=category.title
+             result = []
+            for each category_item in category.children
+                item = {}
+                if category_item.TYPE="playlist" 
+                    item.contenttype="season"
+                    item.title=category_item.title
+                    item.description=category_item.description
+                    item.HDPosterUrl = category_item.image_url
+                    item.children=category_item.children
+                    item.Categories=cat.Title
+                    item.hdBackgroundImageUrl = category_item.background_image_url
+                else 
+                    item.contentType="movie"
+                    item.stream = category_item.video_url
+                    item.url = category_item.video_url
+                    item.streamFormat = "mp4"
+                    item.HDPosterUrl = category_item.side_image_url
+                    item.hdBackgroundImageUrl = category_item.background_image_url
+                    item.title=category_item.title
+                    item.description=category_item.description
+                    
+                end if
+             result.push(item)
+            end for 
+             cat.ContentList=result
+             list.push(cat)
+       end if
     end for
     return list
 end function

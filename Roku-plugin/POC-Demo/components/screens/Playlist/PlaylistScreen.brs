@@ -14,7 +14,7 @@ Function Init()
     m.description       =   m.top.findNode("Description")
     m.background        =   m.top.findNode("Background")
     m.playListItems       =   m.top.findNode("PlaylistItems")
-
+    m.about=m.top.findNode("about")
     ' create buttons
     result = []
     for each button in ["Play"]
@@ -25,8 +25,9 @@ End Function
 
 function onKeyEvent(key as String, press as Boolean) as Boolean
  ? ">>> PlayList >> OnkeyEvent"
- print key
- result = false
+result = false
+print m.description.content
+print key
  if key="up" then
      m.playListItems.setFocus(false)
      m.buttons.setFocus(true)
@@ -35,6 +36,11 @@ function onKeyEvent(key as String, press as Boolean) as Boolean
     m.buttons.setFocus(false)
     m.playListItems.setFocus(true)
     result= true
+ else if key="OK" and  m.description.content<>invalid then
+        m.videoPlayer.visible = true
+        m.videoPlayer.setFocus(true)
+        m.videoPlayer.control = "play"
+        m.videoPlayer.observeField("state", "OnVideoPlayerStateChange")
  end if
  return result
 End Function
@@ -57,7 +63,19 @@ Sub OnFocusedChildChange()
         m.buttons.setFocus(true)
     end if
 End Sub
-
+Sub OnItemFocused()
+    itemFocused = m.top.itemFocused
+    If itemFocused.Count() = 2 then
+        focusedContent          = m.top.PLcontent.getChild(itemFocused[0]).getChild(itemFocused[1])
+        if focusedContent <> invalid then
+        '    m.top.focusedContent    = focusedContent
+            m.description.content   = focusedContent
+            m.background.uri        = focusedContent.hdBackgroundImageUrl
+            m.videoPlayer.content =focusedContent
+        end if
+    end if
+     'm.buttons.setFocus(true)
+End Sub
 ' set proper focus on buttons and stops video if return from Playback to details
 Sub onVideoVisibleChange()
     if m.videoPlayer.visible = false and m.top.visible = true
@@ -93,25 +111,54 @@ End Sub
 Sub OnContentChange()
 
     if m.top.content<>invalid then
-        print m.top.content
         m.description.content   = m.top.content
         m.description.Description.width = "770"
-        m.videoPlayer.content   = m.top.content
+       ' m.videoPlayer.content   = m.top.content
         m.top.streamUrl         = m.top.content.url
        ' m.poster.uri            = m.top.content.HDPosterUrl
         m.background.uri        = m.top.content.hdBackgroundImageUrl
-        
-        'item = createObject("RoSGNode","ContentNode")
-       ' item.SetFields(m.top.content)
-        row = createObject("RoSGNode","ContentNode")
-        'row.Title = ""
-        row.appendChild(m.top.content)
-        RowItems = createObject("RoSGNode","ContentNode")
-        RowItems.appendChild(row)
-        m.playListItems.content = RowItems
-        'm.playListItems.setFocus(true)
+        m.temp=CreateObject("roSGNode", "SimpleTask")
+        m.temp.sourceUrl=LCase("http://10.66.24.124/kirby-roku/kabbalah-channel/"+m.top.content.Categories[0]+"/"+ m.top.content.title)
+        m.temp.ObserveField("result", "onDataChanged")
+        m.temp.control="RUN"
     end if
 End Sub
+function onDataChanged()
+  res=GetPlayListJson() 
+  items=ParseXMLContent(res)
+  m.playListItems.content = items
+  m.playListItems.setFocus(true)
+     
+End function
+Function ParseXMLContent(list As Object)
+        row = createObject("RoSGNode","ContentNode")
+        row.Title =""      
+        for each itemAA in list
+            item = createObject("RoSGNode","ContentNode")
+            item.SetFields(itemAA)
+            row.appendChild(item)
+        end for
+     RowItems = createObject("RoSGNode","ContentNode")
+     RowItems.appendChild(row)
+    return RowItems
+End Function
+function GetPlayListJson()    
+    responseJson = ParseJson(m.temp.result)
+    list = []
+        for each category_item in responseJson
+            item = {}
+            item.contentType="movie"
+            item.stream = category_item.video_url
+            item.url = category_item.video_url
+            item.streamFormat = "mp4"
+            item.HDPosterUrl = category_item.side_image_url
+            item.hdBackgroundImageUrl = category_item.background_image_url
+            item.title=category_item.title
+            item.description=category_item.description
+            list.push(item)
+        end for 
+    return list
+end function
 
 '///////////////////////////////////////////'
 ' Helper function convert AA to Node
