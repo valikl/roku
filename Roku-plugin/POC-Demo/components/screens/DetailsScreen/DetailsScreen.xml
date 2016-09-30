@@ -90,7 +90,7 @@
 	           translation="[726, 58]"
 	           width="400"
 	           horizAlign="right" 
-	           text="Search"/>
+	           text="About"/>
 	       
 	       <Poster id="OptionsIcon"
 	           blendColor="#06d5e1"

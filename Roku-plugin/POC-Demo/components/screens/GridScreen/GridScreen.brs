@@ -13,11 +13,7 @@ Function Init()
     m.top.observeField("focusedChild", "OnFocusedChildChange")
     m.buttons =  m.top.findNode("Buttons")
     
-    fields = m.top.getFields()
-    for each f in fields
-        print f
-    end for
-    
+
      ' create buttons
     result = []
     for each button in ["Watch Livestream"]
@@ -54,7 +50,7 @@ result = false
             m.rowList.setFocus(false)
             m.buttons.setFocus(true)
             ''Take images from somewhere
-           m.buttons.uri="http://i.imgsafe.org/ea30b5e1ce.png"
+           m.buttons.uri="http://i2.wp.com/www.kabbalahblog.info/wp-content/uploads/Kabbalah-Quiz-banner-450x563.png?resize=450%2C563"
            m.background.uri="http://www.laitman.ru/wp-content/gallery/vstrechi-poezdki/laitman-in-japanese_w.jpg"
             print "in"
             result = true
