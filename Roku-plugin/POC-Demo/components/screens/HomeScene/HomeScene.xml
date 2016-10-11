@@ -42,7 +42,8 @@
         <!--Search screen.-->
         <Search
         	id="Search"
-        	visible="false"/>    
+        	visible="false"/>
+        <Options id="Options" visible="false"/>    
         	
         <LoadingIndicator
 	      id="loadingIndicator"

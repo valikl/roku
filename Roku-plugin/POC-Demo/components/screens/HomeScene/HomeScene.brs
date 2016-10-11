@@ -17,6 +17,8 @@ Function Init()
     
     ' Search Screen with keyboard and RowList
     m.Search = m.top.findNode("Search")
+    
+    m.Options=m.top.findNode("Options")
 
     ' Observer to handle Item selection on RowList inside GridScreen (alias="GridScreen.rowItemSelected")
     m.top.observeField("rowItemSelected", "OnRowItemSelected")
@@ -64,21 +66,21 @@ Function OnKeyEvent(key, press) as Boolean
             ' option key handler
 
             ' hide last opened screen (m.screenStack.peek() gridScreen or detailsScreen)
-           ' m.screenStack.peek().visible = false
+            m.screenStack.peek().visible = false
 
             ' add Search screen to Screen stack
-            m.screenStack.push(m.Search)
+            m.screenStack.push(m.Options)
 
             ' show and focus Search
-            m.Search.visible = "true"
-            m.Search.setFocus(true)
+            m.Options.visible = "true"
+            m.Options.setFocus(true)
 
-            m.top.SearchString = ""
+            'm.top.SearchString = ""
 
         else if key = "back" 
        
             ' if Details opened
-            if m.gridScreen.visible = false and m.detailsScreen.visible=true and m.detailsScreen.videoPlayerVisible = false and m.Search.visible = false then
+            if m.gridScreen.visible = false and m.detailsScreen.visible=true and m.detailsScreen.videoPlayerVisible = false and m.Options.visible = false then
 
                 ' if detailsScreen is open and video is stopped, details is lastScreen
                 details = m.screenStack.pop()
@@ -86,7 +88,7 @@ Function OnKeyEvent(key, press) as Boolean
                 m.screenStack.peek().visible = true
                 m.screenStack.peek().setFocus(true)
                 result = true
-            else if m.gridScreen.visible = false and m.playlistScreen.visible=true and m.playlistScreen.videoPlayerVisible = false and m.Search.visible = false then
+            else if m.gridScreen.visible = false and m.playlistScreen.visible=true and m.playlistScreen.videoPlayerVisible = false and m.Options.visible = false then
                 details = m.screenStack.pop()
                 details.visible = false
                 m.screenStack.peek().visible = true
@@ -101,10 +103,10 @@ Function OnKeyEvent(key, press) as Boolean
                 result = true
 
             ' if search opened from Home
-            else if m.Search.visible = true and m.Search.isChildrensVisible = false then
+            else if m.Options.visible = true then
                 ' if Search is visible - it must be last element
-                search = m.screenStack.pop()
-                search.visible = false
+                options = m.screenStack.pop()
+                options.visible = false
 
                 ' after search pop m.screenStack.peek() == last opened screen (gridScreen or detailScreen),
                 ' open last screen before search and focus it
