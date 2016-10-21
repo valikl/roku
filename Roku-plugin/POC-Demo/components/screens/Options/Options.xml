@@ -2,8 +2,7 @@
 <component name="Options" extends="Group" initialFocus="Buttons" xsi:noNamespaceSchemaLocation="http://rokudev.roku.com/rokudev/schema/RokuSceneGraph.xsd">
  <interface>
         <field id="itemSelected" type="integer" alwaysnotify="true" alias="Buttons.itemSelected" onChange="onItemSelected" />
-        <field id="items" type="stringarray" onChange="onButtonsSet"/>
-        
+        <field id="items" type="string" alwaysnotify="true" onChange="onButtonsSet"/>        
   </interface>
   <script type="text/brightscript" uri="pkg:/components/screens/Options/Options.brs" />
     <children>

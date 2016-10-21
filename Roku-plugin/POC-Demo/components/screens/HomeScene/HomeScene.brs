@@ -100,7 +100,9 @@ Function OnKeyEvent(key, press) as Boolean
             else if m.detailsScreen.videoPlayerVisible = true then
                 m.detailsScreen.videoPlayerVisible = false
                 result = true
-
+             else if m.gridScreen.videoPlayerVisible = true then
+                m.gridScreen.videoPlayerVisible = false
+                result = true
             ' if search opened from Home
             else if m.Options.visible = true then
                 ' if Search is visible - it must be last element

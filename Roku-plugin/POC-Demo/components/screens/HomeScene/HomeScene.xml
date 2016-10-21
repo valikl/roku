@@ -19,6 +19,13 @@
         <field id="rowItemSelected" type="intarray" alwaysNotify="true" alias="GridScreen.rowItemSelected"/>
         
         <field id="SearchString" type="string" alwaysnotify="true" alias="Search.SearchString"/>
+        <field id="optionsStr" type="string" alwaysnotify="true" alias="Options.items"/>
+        <field id="liveStreamEnabled" type="bool" alias="GridScreen.liveStreamEnabled"/>
+        <field id="liveStreamURL" type="string" alias="GridScreen.liveStreamURL"/>
+        <field id="liveStreamSelectedImage"  type="string" alias="GridScreen.liveStreamSelectedImage"/>
+        <field id="liveStreamUnselectedImage" type="string"  alias="GridScreen.liveStreamUnselectedImage"/>
+        <field id="liveStreamSelectedBackground" type="string" alias="GridScreen.liveStreamSelectedBackground"/>
+        <field id="liveStreamDefaultImage" type="string" alias="GridScreen.liveStreamDefaultImage"/>
     </interface>
     
     <!-- main handler -->

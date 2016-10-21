@@ -246,6 +246,19 @@ function getJson()
             end for 
              cat.ContentList=result
              list.push(cat)
+        else if category.Type="homepage" then
+             if category.live_stream_enabled="1" then
+                m.scene.liveStreamEnabled=true
+                m.scene.liveStreamURL=category.live_stream_url
+                m.scene.liveStreamSelectedImage=category.small_image_selected_url
+                m.scene.liveStreamUnselectedImage=category.small_image_unselected_url
+                m.scene.liveStreamSelectedBackground=category.background_image_selected_url
+                m.scene.liveStreamDefaultImage=category.small_image_unselected_url
+             else
+                m.scene.liveStreamEnabled=false
+             end if
+             print category.options
+              m.scene.optionsStr=category.options
        end if
     end for
     return list

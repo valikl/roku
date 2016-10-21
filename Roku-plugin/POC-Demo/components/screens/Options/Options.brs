@@ -53,6 +53,8 @@ Sub OnFocusedChildChange()
     end if
 End Sub
 Sub onButtonsSet()
+print "OptionsDDDDDDDDDDDDDD"
+print m.top.items
     m.btnLst=["About", "Second"]
     result = []
     for each button in m.btnLst
