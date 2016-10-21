@@ -8,7 +8,7 @@ Function Init()
     m.rowList       =   m.top.findNode("RowList")
     m.description   =   m.top.findNode("Description")
     m.background    =   m.top.findNode("Background")
-
+    m.videoPlayer       =   m.top.findNode("VideoPlayer")
     m.top.observeField("visible", "onVisibleChange")
     m.top.observeField("focusedChild", "OnFocusedChildChange")
     m.buttons =  m.top.findNode("Buttons")
@@ -41,24 +41,53 @@ Function ContentList2SimpleNode(contentList as Object, nodeType = "ContentNode" 
     end if
     return result
 End Function
+Sub OnVideoPlayerStateChange()
+    if m.videoPlayer.state = "error"
+        ' error handling
+        m.videoPlayer.visible = false
+    else if m.videoPlayer.state = "playing"
+        ' playback handling
+    else if m.videoPlayer.state = "finished"
+        m.videoPlayer.visible = false
+    end if
+End Sub
+Sub onVideoVisibleChange()
+    if m.videoPlayer.visible = false and m.top.visible = true
+        m.buttons.setFocus(true)
+        m.videoPlayer.control = "stop"
+    end if
+End Sub
 function onKeyEvent(key as String, press as Boolean) as Boolean
  ? ">>> GridScreen >> OnkeyEvent"
  print key
 result = false
   if press then
         if key="up" then
-            m.rowList.setFocus(false)
-            m.buttons.setFocus(true)
+        if m.top.liveStreamEnabled then
+           m.rowList.setFocus(false)
+           m.buttons.setFocus(true)
             ''Take images from somewhere
-           m.buttons.uri="http://i2.wp.com/www.kabbalahblog.info/wp-content/uploads/Kabbalah-Quiz-banner-450x563.png?resize=450%2C563"
-           m.background.uri="http://www.laitman.ru/wp-content/gallery/vstrechi-poezdki/laitman-in-japanese_w.jpg"
-            print "in"
-            result = true
+           m.buttons.uri=m.top.liveStreamSelectedImage
+           m.background.uri=m.top.liveStreamSelectedBackground
+           result = true
+         end if
          else if key="down"
-         m.buttons.uri="http://www.laitman.ru/wp-content/gallery/vstrechi-poezdki/laitman-in-japanese_w.jpg"
-         m.rowList.setFocus(true)
+          if m.top.liveStreamEnabled then
+             m.buttons.uri=m.top.liveStreamUnselectedImage
+             m.rowList.setFocus(true)
+          end if
          else if key="OK"
-            print "Ok button clicked "
+             if m.top.liveStreamEnabled and m.background.uri=m.top.liveStreamSelectedBackground then
+               videoContent = createObject("RoSGNode", "ContentNode")
+               videoContent.url = m.top.liveStreamURL
+               videoContent.title = "Live Stream"
+               m.videoPlayer.content=videoContent
+               m.videoPlayer.visible = true
+               m.videoPlayer.setFocus(true)
+               m.videoPlayer.control = "play"
+               m.videoPlayer.observeField("state", "OnVideoPlayerStateChange")
+               result = true
+             end if
          else if key="right"
            itemFocused = m.top.itemFocused
         ' item focused should be an intarray with row and col of focused element in RowList

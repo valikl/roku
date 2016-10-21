@@ -16,9 +16,17 @@
         
         <!-- Row item focused handler -->
         <field id="itemFocused" type="intarray" alias="RowList.rowItemFocused" onChange="OnItemFocused"/>
-
+		<field id="videoPlayerVisible" type="bool" alwaysnotify="true" alias="VideoPlayer.visible"  onChange="onVideoVisibleChange" />
         <!-- Interface to focused item (Content Node) -->
         <field id="focusedContent"  type="node"/>
+        
+        <!-- Live stream links -->
+        <field id="liveStreamEnabled" type="bool"/>
+        <field id="liveStreamDefaultImage" type="string" alias="Buttons.uri"/>
+        <field id="liveStreamURL" type="string"/>
+        <field id="liveStreamSelectedImage"  type="string"/>
+        <field id="liveStreamUnselectedImage" type="string"/>
+        <field id="liveStreamSelectedBackground" type="string"/>
     </interface>
     
     <!-- main handler -->
@@ -34,7 +42,6 @@
 		<Poster
             id="Buttons"
             translation="[895,130]"
-            uri="http://www.laitman.ru/wp-content/gallery/vstrechi-poezdki/laitman-in-japanese_w.jpg"
             width="258"
             height="158"
             />
@@ -90,5 +97,11 @@
 			id="Description"
 			translation="[128, 184]"
 			itemSpacings="[8,0]" />
+		<Video
+            id="VideoPlayer"
+            visible="false"
+            translation="[0, 0]"
+            width="1280"
+            height="720"/>
     </children>
 </component>
