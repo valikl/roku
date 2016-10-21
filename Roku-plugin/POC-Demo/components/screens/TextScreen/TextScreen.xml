@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<component name="TextScreen" extends="Group" xsi:noNamespaceSchemaLocation="https://devtools.web.roku.com/schema/RokuSceneGraph.xsd">
+<interface>
+<field id="Text" type="string" alias="text.text" alwaysnotify="true"/>
+<field id="BackgroundImg" type="string" alias="Background.uri" alwaysnotify="true"/>
+<field id="Title" type="string" alias="Title.text" alwaysnotify="true"/>
+</interface>
+
+<script type="text/brightscript" uri="pkg:/components/screens/TextScreen/TextScreen.brs" />
+<children>
+<FadingBackground
+			id="Background"
+			width="1280"
+			height="720"
+			color="0x000000"
+			uri="pkg:/images/BG_dark_down.png"
+			ShadeOpacity="0.6" />
+  <Label
+            id="Title"
+            color="0xFFFFFF"
+            font="font:LargeBoldSystemFont"
+            text="Jopa"
+            translation="[100,100]"
+            />
+<ScrollableText id="text" translation="[350,220]"
+text="jgkgfhfrhtgkjrgrjkeh"
+width="500"
+height="500"/>
+
+		
+</children>
+</component>
