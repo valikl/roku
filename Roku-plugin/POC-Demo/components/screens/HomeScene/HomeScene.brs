@@ -66,7 +66,7 @@ Function OnKeyEvent(key, press) as Boolean
             ' option key handler
 
             ' hide last opened screen (m.screenStack.peek() gridScreen or detailsScreen)
-            m.screenStack.peek().visible = false
+            'm.screenStack.peek().visible = false
 
             ' add Search screen to Screen stack
             m.screenStack.push(m.Options)
@@ -78,7 +78,6 @@ Function OnKeyEvent(key, press) as Boolean
             'm.top.SearchString = ""
 
         else if key = "back" 
-       
             ' if Details opened
             if m.gridScreen.visible = false and m.detailsScreen.visible=true and m.detailsScreen.videoPlayerVisible = false and m.Options.visible = false then
 
@@ -110,6 +109,7 @@ Function OnKeyEvent(key, press) as Boolean
 
                 ' after search pop m.screenStack.peek() == last opened screen (gridScreen or detailScreen),
                 ' open last screen before search and focus it
+                m.screenStack.peek().visible = false
                 m.screenStack.peek().visible = true
                 m.screenStack.peek().setFocus(true)
                 result = true        

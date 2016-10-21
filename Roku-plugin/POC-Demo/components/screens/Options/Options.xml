@@ -2,23 +2,26 @@
 <component name="Options" extends="Group" initialFocus="Buttons" xsi:noNamespaceSchemaLocation="http://rokudev.roku.com/rokudev/schema/RokuSceneGraph.xsd">
  <interface>
         <field id="itemSelected" type="integer" alwaysnotify="true" alias="Buttons.itemSelected" onChange="onItemSelected" />
+        <field id="items" type="stringarray" onChange="onButtonsSet"/>
+        
   </interface>
+  <script type="text/brightscript" uri="pkg:/components/screens/Options/Options.brs" />
     <children>
-  		  <Poster
-            id="Background"
-            width="600"
-            height="400"
-             uri="pkg:/images/MainMenu_Icon_Center_HD.jpg"
-            />
+  		  <Rectangle
+            id="backgroundColor"
+            color="0x999979FF"
+  			width="400"
+ 			height="300"
+ 			 translation="[500,350]"/>
         <LabelList
             id="Buttons"
-            translation="[800,120]"
+            translation="[600,420]"
             color="0xFF000080"
             focusedColor="0x333333FF"
             numRows="5"
             vertFocusAnimationStyle="floatingFocus"
             itemSize="[250, 55]"
             />
-            
+			<TextScreen id="txtScreen"  visible="false"/>
      </children>
 </component>

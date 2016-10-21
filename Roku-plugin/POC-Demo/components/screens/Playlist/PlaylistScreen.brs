@@ -26,7 +26,6 @@ End Function
 function onKeyEvent(key as String, press as Boolean) as Boolean
  ? ">>> PlayList >> OnkeyEvent"
 result = false
-print m.description.content
 print key
  if key="up" then
      m.playListItems.setFocus(false)
@@ -36,7 +35,7 @@ print key
     m.buttons.setFocus(false)
     m.playListItems.setFocus(true)
     result= true
- else if key="OK" and  m.description.content<>invalid then
+ else if m.top.visible=true and key="OK" and  m.description.content<>invalid then
         m.videoPlayer.visible = true
         m.videoPlayer.setFocus(true)
         m.videoPlayer.control = "play"
@@ -109,7 +108,6 @@ End Sub
 
 ' Content change handler
 Sub OnContentChange()
-
     if m.top.content<>invalid then
         m.description.content   = m.top.content
         m.description.Description.width = "770"
@@ -118,11 +116,12 @@ Sub OnContentChange()
        ' m.poster.uri            = m.top.content.HDPosterUrl
         m.background.uri        = m.top.content.hdBackgroundImageUrl
         m.temp=CreateObject("roSGNode", "SimpleTask")
-        m.temp.sourceUrl=LCase("http://10.66.24.124/kirby-roku/kabbalah-channel/"+m.top.content.Categories[0]+"/"+ m.top.content.title)
+        m.temp.sourceUrl=LCase(m.top.content.id)
         m.temp.ObserveField("result", "onDataChanged")
         m.temp.control="RUN"
     end if
 End Sub
+
 function onDataChanged()
   res=GetPlayListJson() 
   items=ParseXMLContent(res)

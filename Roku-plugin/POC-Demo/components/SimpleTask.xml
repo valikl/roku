@@ -16,13 +16,30 @@ sub getContent()
 end sub
  sub getJson()
   searchRequest = CreateObject("roUrlTransfer")
-  searchRequest.SetURL(m.top.sourceUrl)
+  searchRequest.SetURL(getServerName()+m.top.sourceUrl)
   m.top.result =searchRequest.GetToString()
 end sub
 Sub ViewContentChanged()
 print "content change"
 End Sub
+Function ParseXML(str As String) As dynamic
+    if str = invalid return invalid
+    xml=CreateObject("roXMLElement")
+    if not xml.Parse(str) return invalid
+    return xml
+End Function
 
+function getServerName() as string
+    file = ReadAsciiFile("pkg:/source/config.xml")
+    responseXML = ParseXML(file)
+    responseXML = responseXML.GetChildElements()
+     for each xmlItem in responseXML
+       if xmlItem.getName()="server" then
+       return xmlItem.getText()
+       end if
+     end for
+     return ""
+end function
 ]]>
 </script>
 </component>

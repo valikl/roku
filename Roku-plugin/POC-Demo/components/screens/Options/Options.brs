@@ -1,16 +1,13 @@
 Function Init()
-    ? "[Options] init"
+    ? "[Options] Init"
 
     m.top.observeField("visible", "onVisibleChange")
     m.top.observeField("focusedChild", "OnFocusedChildChange")
+    m.txtScreen=m.top.findNode("txtScreen")
     
     m.buttons           =   m.top.findNode("Buttons")
     ' create buttons
-    result = []
-    for each button in ["Play", "Second"]
-        result.push({title : button})
-    end for
-    m.buttons.content = ContentList2SimpleNode(result)
+   onButtonsSet()
 End Function
 
 Function ContentList2SimpleNode(contentList as Object, nodeType = "ContentNode" as String) as Object
@@ -31,7 +28,11 @@ function onKeyEvent(key as String, press as Boolean) as Boolean
     if press then
         ? "key == ";  key
         if key = "back"
-            ' if Details opened
+            if m.txtScreen.visible then
+                m.txtScreen.visible=false
+                 m.buttons.setFocus(true)
+                result=true
+            end if
 
         end if
     end if
@@ -47,13 +48,44 @@ Sub onVisibleChange()
 End Sub
 
 Sub OnFocusedChildChange()
-    if m.top.isInFocusChain() and not m.buttons.hasFocus() then
+    if m.top.isInFocusChain() and not m.buttons.hasFocus() and not m.txtScreen.visible then
         m.buttons.setFocus(true)
     end if
 End Sub
-
+Sub onButtonsSet()
+    m.btnLst=["About", "Second"]
+    result = []
+    for each button in m.btnLst
+        result.push({title : button})
+    end for
+    m.buttons.content = ContentList2SimpleNode(result)
+End Sub
 Sub onItemSelected()
     ' first button is Play
-  '  if m.top.itemSelected = 0
-   ' end if
+    print m.top.itemSelected
+    print m.btnLst[m.top.itemSelected]
+    m.temp=CreateObject("roSGNode", "SimpleTask")
+    m.temp.sourceUrl=LCase("kabbalah-channel/homepage/options/"+ m.btnLst[m.top.itemSelected])
+    m.temp.ObserveField("result", "onDataChanged")
+    m.temp.control="RUN"
 End Sub
+function onDataChanged()
+  res=GetPlayListJson() 
+  m.buttons.setFocus(false)
+  m.txtScreen.Text=res.description
+  m.txtScreen.setFocus(true)
+  m.txtScreen.visible=true
+  m.txtScreen.BackgroundImg=res.hdBackgroundImageUrl
+  m.txtScreen.Title=res.Title  
+End function
+
+function GetPlayListJson()    
+    responseJson = ParseJson(m.temp.result)
+        for each category_item in responseJson
+            item = {}
+            item.title=category_item.title
+            item.description=category_item.text
+            item.hdBackgroundImageUrl=category_item.background_image_url
+            return item
+        end for 
+end function

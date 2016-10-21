@@ -10,6 +10,8 @@ Sub RunUserInterface()
 
     'try to read json
     list= getJson()
+    
+   'POC 
     Row1 = GetApiArray(1)
     Row2=GetApiArray(2)
     Row3=GetApiArray(3)
@@ -193,16 +195,27 @@ Function ParseXML(str As String) As dynamic
     return xml
 End Function
 
+function getServerName() as string
+    file = ReadAsciiFile("pkg:/source/config.xml")
+    responseXML = ParseXML(file)
+    responseXML = responseXML.GetChildElements()
+     for each xmlItem in responseXML
+       if xmlItem.getName()="server" then
+       return xmlItem.getText()
+       end if
+     end for
+     return ""
+end function
 function getJson()
+    server=getServerName()
+    
     searchRequest = CreateObject("roUrlTransfer")
-    searchRequest.SetURL("http://10.66.24.124/kirby-roku/kabbalah-channel/")
+    searchRequest.SetURL(server+"kabbalah-channel")
     json = searchRequest.GetToString()
     'print json
-
     responseJson = ParseJson(json)
     list = []
     for each category in responseJson
-    
     if category.Type="category"
              cat={}
              cat.TITLE=category.title
@@ -216,6 +229,7 @@ function getJson()
                     item.HDPosterUrl = category_item.image_url
                     item.children=category_item.children
                     item.Categories=cat.Title
+                    item.id=category_item.uri
                     item.hdBackgroundImageUrl = category_item.background_image_url
                 else 
                     item.contentType="movie"
