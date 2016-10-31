@@ -26,7 +26,6 @@ End Function
 Sub onItemSelected()
     ' first button is Play
    ' if m.top.itemSelected = 0
-     print "Jopa1"
    ' end if
 End Sub
 

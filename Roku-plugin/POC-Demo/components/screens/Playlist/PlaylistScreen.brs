@@ -35,12 +35,14 @@ print key
     m.buttons.setFocus(false)
     m.playListItems.setFocus(true)
     result= true
- else if m.top.visible=true and key="OK" and  m.description.content<>invalid then
+ else if m.top.visible=true and key="OK" and  m.description.content<>invalid and  m.stopEvent<>true then
         m.videoPlayer.visible = true
         m.videoPlayer.setFocus(true)
         m.videoPlayer.control = "play"
         m.videoPlayer.observeField("state", "OnVideoPlayerStateChange")
+        result =true
  end if
+ m.stopEvent=false
  return result
 End Function
 
@@ -48,8 +50,9 @@ End Function
 Sub onVisibleChange()
     ? "[PlaylistScreen] onVisibleChange"
     if m.top.visible = true then
-        m.buttons.jumpToItem = 0
-        m.buttons.setFocus(true)
+        m.stopEvent=true
+        'm.buttons.jumpToItem = 0
+        m.playListItems.setFocus(true) 
     else
         m.videoPlayer.visible = false
         m.videoPlayer.control = "stop"

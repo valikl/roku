@@ -258,7 +258,7 @@ function getJson()
                 m.scene.liveStreamEnabled=false
              end if
              print category.options
-              m.scene.optionsStr=category.options
+              m.scene.optionsStr=category.options_uri
        end if
     end for
     return list

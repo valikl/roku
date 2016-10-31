@@ -53,21 +53,31 @@ Sub OnFocusedChildChange()
     end if
 End Sub
 Sub onButtonsSet()
-print "OptionsDDDDDDDDDDDDDD"
-print m.top.items
-    m.btnLst=["About", "Second"]
-    result = []
-    for each button in m.btnLst
-        result.push({title : button})
-    end for
-    m.buttons.content = ContentList2SimpleNode(result)
+if m.top.items<> invalid and m.top.items<>"" then
+    m.opt=CreateObject("roSGNode", "SimpleTask")
+    m.opt.sourceUrl=LCase(m.top.items)
+    m.opt.ObserveField("result", "onOptionsSet")
+    m.opt.control="RUN"
+end if
+   ' m.btnLst=["About", "Second"]
+   ' result = []
+  '  for each button in m.btnLst
+   '     result.push({title : button, id:"test"})
+  '  end for
+  '  m.buttons.content = ContentList2SimpleNode(result)
 End Sub
+
+function onOptionsSet()
+ responseJson = ParseJson(m.opt.result)
+    result = []
+    for each category_item in responseJson
+        result.Push({title:category_item.Title,id:category_item.uri})
+    end for
+     m.buttons.content = ContentList2SimpleNode(result)
+end function
 Sub onItemSelected()
-    ' first button is Play
-    print m.top.itemSelected
-    print m.btnLst[m.top.itemSelected]
     m.temp=CreateObject("roSGNode", "SimpleTask")
-    m.temp.sourceUrl=LCase("kabbalah-channel/homepage/options/"+ m.btnLst[m.top.itemSelected])
+    m.temp.sourceUrl=LCase(m.buttons.content.getChild(m.top.itemSelected).id)
     m.temp.ObserveField("result", "onDataChanged")
     m.temp.control="RUN"
 End Sub
